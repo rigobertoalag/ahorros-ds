@@ -1,7 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function HomePage(){
     return(
-     <h1>Hola desde homepage</h1>   
+        <div>
+            <h1>Hola desde homepage</h1>
+            <Link to="/home">Entrar</Link>
+        </div>
     )
 }
