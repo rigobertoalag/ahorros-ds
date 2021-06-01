@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { Line } from 'react-chartjs-2'
-import {TrendingUpIcon, TrendingDownIcon} from '@heroicons/react/outline'
+import { TrendingUpIcon, TrendingDownIcon,ArrowLeftIcon} from '@heroicons/react/outline'
 
 export default function ViewAhorroByDate() {
-    const [date, getDate] = useState(['1', '2', '3', '4', '5', '6', '7']);
-    const [entries, getEntries] = useState([200, 100, 300, 150, 500]);
-    const [withdraw, geWithdraw] = useState([100, 50, 0, 50, 0]);
+    const [date] = useState(['1', '2', '3', '4', '5', '6', '7']); //Ejenmplo por semana
+    const [entries, getEntries] = useState([]);
+    const [withdraw, getWithdraw] = useState([]);
 
     const entriesAndWithdraw = [
         {
@@ -27,14 +28,40 @@ export default function ViewAhorroByDate() {
             type: 'entry'
         },
         {
-            id: 2,
+            id: 4,
             date: '31/05/2021 16:30',
-            quantity: 50,
+            quantity: 100,
+            type: 'withdraw'
+        },
+        {
+            id: 5,
+            date: '01/05/2021 16:30',
+            quantity: 500,
+            type: 'entry'
+        },
+        {
+            id: 6,
+            date: '01/05/2021 17:30',
+            quantity: 100,
+            type: 'entry'
+        },
+        {
+            id: 7,
+            date: '01/05/2021 17:31',
+            quantity: 100,
             type: 'withdraw'
         },
     ]
 
-    console.log(entriesAndWithdraw)
+    useEffect(() => {
+        const entries = entriesAndWithdraw.filter(ew => ew.type === 'entry');
+        const e = entries.map(e => e.quantity)
+        getEntries(e)
+
+        const withdraw = entriesAndWithdraw.filter(ew => ew.type === 'withdraw');
+        const w = withdraw.map(w => w.quantity)
+        getWithdraw(w)
+    },[]);
 
     const data = {
         labels: date, //Datos dinamicos
@@ -58,6 +85,7 @@ export default function ViewAhorroByDate() {
 
     return (
         <div className="mt-20">
+            <Link to="/list-ahorros"><ArrowLeftIcon className="-mt-3 mx-5 w-1/12 text-pink-600"/></Link>
             <div className="mx-5">
                 <Line data={data} />
             </div>
@@ -75,7 +103,7 @@ export default function ViewAhorroByDate() {
                                 {ew.type === 'entry' ?
                                     <ul className="text-green-500"><TrendingUpIcon className="w-3.5 inline" /> {ew.quantity}</ul>
                                     :
-                                    <ul className="text-red-500"><TrendingDownIcon className="w-3.5 inline"/> {ew.quantity}</ul>
+                                    <ul className="text-red-500"><TrendingDownIcon className="w-3.5 inline" /> {ew.quantity}</ul>
                                 }
                             </div>
                         </div>
@@ -85,26 +113,3 @@ export default function ViewAhorroByDate() {
         </div>
     )
 }
-
-/*
-var entriesFilter = entriesAndWithdraw.filter(function (el) {
-        return el.type === 'entry';
-    });
-
-    var withdrawFilter = entriesAndWithdraw.filter(function (el) {
-        return el.type === 'withdraw';
-    });
-
-    console.log('entriesFilter', entriesFilter);
-    console.log('withdrawFilter', withdrawFilter);
-
-    const setEntryOrWithdraw = (entriesAndWithdraw) => {
-        if (!entriesAndWithdraw) {
-            console.log('nada que mostrar')
-        } else {
-            const result = entriesAndWithdraw.filter(entry => entry === 'entry');
-            console.log(result);
-            console.log('todo chido')
-        }
-    }
-*/
