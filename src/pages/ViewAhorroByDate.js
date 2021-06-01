@@ -1,32 +1,6 @@
 import React, { useState } from 'react'
 import { Line } from 'react-chartjs-2'
-
-/*let entriesAndWithdraw = [
-    {
-        id:1,
-        date: '31/05/2021 13:30',
-        quantity: 300,
-        type: 'entry'
-    },
-    {
-        id:2,
-        date: '31/05/2021 14:30',
-        quantity: 50,
-        type: 'withdraw'
-    },
-    {
-        id:3,
-        date: '31/05/2021 15:30',
-        quantity: 100,
-        type: 'entry'
-    },
-    {
-        id:2,
-        date: '31/05/2021 16:30',
-        quantity: 50,
-        type: 'withdraw'
-    },
-]*/
+import {TrendingUpIcon, TrendingDownIcon} from '@heroicons/react/outline'
 
 export default function ViewAhorroByDate() {
     const [date, getDate] = useState(['1', '2', '3', '4', '5', '6', '7']);
@@ -38,13 +12,13 @@ export default function ViewAhorroByDate() {
             id: 1,
             date: '31/05/2021 13:30',
             quantity: 300,
-            type: 'entry'
+            type: 'entry' //entry
         },
         {
             id: 2,
             date: '31/05/2021 14:30',
             quantity: 50,
-            type: 'withdraw'
+            type: 'withdraw' //withdraw
         },
         {
             id: 3,
@@ -61,24 +35,6 @@ export default function ViewAhorroByDate() {
     ]
 
     console.log(entriesAndWithdraw)
-
-    const filterItems = query => {
-        return entriesAndWithdraw.filter((el) =>
-            el.toLowerCase().indexOf(query.toLowerCase()) > -1
-        );
-    }
-
-    console.log(filterItems('entry')); // ['apple', 'grapes']
-
-    const setEntryOrWithdraw = (entriesAndWithdraw) => {
-        if (!entriesAndWithdraw) {
-            console.log('nada que mostrar')
-        } else {
-            const result = entriesAndWithdraw.filter(entry => entry === 'entry');
-            console.log(result);
-            console.log('todo chido')
-        }
-    }
 
     const data = {
         labels: date, //Datos dinamicos
@@ -106,31 +62,49 @@ export default function ViewAhorroByDate() {
                 <Line data={data} />
             </div>
 
-            <button onClick={() => setEntryOrWithdraw(entriesAndWithdraw)}>test</button>
+            <div className="mx-5 mt-8 text-pink-600">Ingresos y Egresos del $date</div>
 
-            <div className="mx-5 mt-12 text-pink-600">Ingresos y Egresos del $date</div>
-
-            <div className="grid grid-cols-2 mx-5 mt-5">
-                <div>
-                    <p>31/05/2021 13:30</p>
-                    <p>31/05/2021 14:30</p>
-                    <p>31/05/2021 16:30</p>
-                    <p>31/05/2021 17:30</p>
-                    <p>31/05/2021 18:30</p>
-                </div>
-                <div className="text-center">
-                    {
-                        entries.map(e => (
-                            <p>${e}</p>
-                        ))
-                    }
-                    {
-                        withdraw.map(w => (
-                            <p>${w}</p>
-                        ))
-                    }
-                </div>
+            <div className="mx-5 mt-5">
+                {
+                    entriesAndWithdraw.map((ew) => (
+                        <div key={ew.id} className="grid grid-cols-2">
+                            <div>
+                                <ul>{ew.date}</ul>
+                            </div>
+                            <div className="text-center">
+                                {ew.type === 'entry' ?
+                                    <ul className="text-green-500"><TrendingUpIcon className="w-3.5 inline" /> {ew.quantity}</ul>
+                                    :
+                                    <ul className="text-red-500"><TrendingDownIcon className="w-3.5 inline"/> {ew.quantity}</ul>
+                                }
+                            </div>
+                        </div>
+                    ))
+                }
             </div>
         </div>
     )
 }
+
+/*
+var entriesFilter = entriesAndWithdraw.filter(function (el) {
+        return el.type === 'entry';
+    });
+
+    var withdrawFilter = entriesAndWithdraw.filter(function (el) {
+        return el.type === 'withdraw';
+    });
+
+    console.log('entriesFilter', entriesFilter);
+    console.log('withdrawFilter', withdrawFilter);
+
+    const setEntryOrWithdraw = (entriesAndWithdraw) => {
+        if (!entriesAndWithdraw) {
+            console.log('nada que mostrar')
+        } else {
+            const result = entriesAndWithdraw.filter(entry => entry === 'entry');
+            console.log(result);
+            console.log('todo chido')
+        }
+    }
+*/
