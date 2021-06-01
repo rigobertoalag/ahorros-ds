@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function AddAhorro() {
     return (
-        <div className="grid grid-cols-1 justify-items-center items-center">
+        <div className="grid grid-cols-1 justify-items-center items-center mt-20">
             <label for="price" className="block text-lg font-medium text-gray-700">Añadir ahorro</label>
             <div className="mt-16 relative rounded-md shadow-sm">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">

@@ -28,7 +28,7 @@ import { Link } from 'react-router-dom'
 
 export default function NavBar() {
     return (
-        <div className="mb-20">
+        <div>
             <nav className="bg-pink-400 shadow fixed max-w-screen-full max-h-20 z-10 mx-auto inset-x-0 top-0">
                 <div className="grid justify-items-center">
                     <Link to='/' className="font-extrabold m-3 uppercase hover:text-pink-700 transition-all duration-500">

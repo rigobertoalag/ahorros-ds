@@ -57,7 +57,7 @@ export default function ViewAhorroByDate() {
     };
 
     return (
-        <div>
+        <div className="mt-20">
             <div className="mx-5">
                 <Line data={data} />
             </div>

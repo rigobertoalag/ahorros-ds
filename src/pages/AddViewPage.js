@@ -5,7 +5,7 @@ import {PresentationChartBarIcon, BookOpenIcon} from '@heroicons/react/outline'
 
 export default function AddViewPage() {
     return (
-        <div class="grid grid-cols-2 justify-items-center">
+        <div class="grid grid-cols-2 justify-items-center mt-20">
 
             <div className="pl-5 mb-28">
                 <Link to="/add-ahorro">
