@@ -5,10 +5,10 @@ import { LockClosedIcon } from '@heroicons/react/solid'
 
 export default function Login() {
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="mt-16 flex items-center justify-center bg-gray-50 py-2 px-4 sm:px-6 lg:px-8">
             <div className="max-w-md w-full space-y-8">
                 <div>
-                    <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Inicio de sesion</h2>
+                    <h2 className="mt-2 text-center text-3xl font-extrabold text-gray-900">Inicio de sesion</h2>
                 </div>
                 <form className="mt-8 space-y-6" action="#" method="POST">
                     <input type="hidden" name="remember" defaultValue="true" />
@@ -63,6 +63,11 @@ export default function Login() {
                     </button>
                     </div>
                 </form>
+                <div className="grid grid-cols-1 justify-items-center">
+                    <Link to="/" className="group relative w-1/2 flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-pink-500 hover:bg-pink-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-300">
+                        Regresar
+                    </Link>
+                </div>
             </div>
         </div>
     )
