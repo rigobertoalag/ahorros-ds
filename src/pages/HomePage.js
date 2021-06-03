@@ -13,7 +13,7 @@ export default function HomePage() {
                     <Link to="/login" className="bg-pink-500 hover:bg-pink-600 text-white text-sm px-10 py-2 border rounded-full my-2">Login</Link>
                 </div>
             </div>
-            <div className="mt-10 mx-5">
+            <div className="mt-12 mx-5">
                 <div className="relative text-center grid justify-items-center">
                     <BookOpenIcon className="w-44 text-pink-400" />
                     <div className="absolute">
@@ -25,7 +25,7 @@ export default function HomePage() {
                     <span className="block text-pink-500">en un solo lugar</span>
                 </h2>
             </div>
-            <div className="bg-pink-500 mt-16">
+            <div className="bg-pink-500 mt-28">
                 <h2 className="text-3xl font-extrabold tracking-tight text-gray-700 py-5 px-5 grid grid-cols-2">
                     <span className="block text-white my-5">Proceso sencillo </span>
                     <CheckCircleIcon className="w-1/3 text-pink-200 my-5" />
