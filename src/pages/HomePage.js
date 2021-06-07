@@ -7,11 +7,9 @@ import { CurrencyDollarIcon, SearchCircleIcon } from '@heroicons/react/solid'
 export default function HomePage() {
     return (
         <div>
-            <div className="sticky  mt-12">
-                <div className="grid grid-cols-2 w-full justify-items-center bg-pink-200">
-                    <Link to="/home" className="bg-pink-500 hover:bg-pink-600 text-white text-sm px-10 py-2 border rounded-full my-2">Entrar</Link>
-                    <Link to="/login" className="bg-pink-500 hover:bg-pink-600 text-white text-sm px-10 py-2 border rounded-full my-2">Login</Link>
-                </div>
+            <div className="grid grid-cols-2 w-full justify-items-center bg-pink-200">
+                <Link to="/home" className="bg-pink-500 hover:bg-pink-600 text-white text-sm px-10 py-2 border rounded-full my-2">Entrar</Link>
+                <Link to="/login" className="bg-pink-500 hover:bg-pink-600 text-white text-sm px-10 py-2 border rounded-full my-2">Login</Link>
             </div>
             <div className="mt-12 mx-5">
                 <div className="relative text-center grid justify-items-center">

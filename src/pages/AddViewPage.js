@@ -5,9 +5,9 @@ import { PresentationChartBarIcon, BookOpenIcon, PlusIcon, SwitchHorizontalIcon 
 
 export default function AddViewPage() {
     return (
-        <div class="grid grid-cols-2 mt-20 justify-items-center">
+        <div class="grid grid-cols-2 justify-items-center">
 
-            <div className="bg-green-900 w-full h-full py-3 text-center">
+            <div className="bg-gray-300 w-full h-full py-3 text-center">
                 <Link to="/add-ahorro">
                     <PlusIcon className="h-12 text-green-500 absolute" />
                     <Pork className="max-h-24" />
@@ -15,7 +15,7 @@ export default function AddViewPage() {
                 </Link>
             </div>
 
-            <div className="bg-green-500 w-full h-full py-3 text-center">
+            <div className="bg-gray-200 w-full h-full py-3 text-center">
                 <Link to="/rmv-ahorro">
                     <SwitchHorizontalIcon className="h-12 text-red-500 absolute" />
                     <Pork className="max-h-24" />
@@ -23,9 +23,9 @@ export default function AddViewPage() {
                 </Link>
             </div>
 
-            <div className="text-center my-10">
+            <div className="bg-gray-200 w-full h-full py-3 text-center content-around items-center">
                 <Link to="/list-ahorros">
-                    <BookOpenIcon className="text-pink-500" />
+                    <BookOpenIcon className="text-pink-500 max-h-24" />
                     <span>Ver ahorros</span>
                 </Link>
             </div>
